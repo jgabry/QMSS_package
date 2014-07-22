@@ -1,13 +1,15 @@
 #' Test proportional odds assumption for ordinal logit models
 #'
-#' @param fit An ordinal logit model fit with \code{vglm} (\pkg{VGAM}) with \code{family = propodds}
-#' @param relaxed.fit An ordinal logit model fit with \code{vglm} (\pkg{VGAM}) with \code{family = cumulative(reverse = TRUE)}
+#' @param fit An ordinal logit model fit with \code{\link[VGAM]{vglm}} (\pkg{VGAM}) 
+#' with \code{family = propodds}.
+#' @param relaxed.fit An ordinal logit model fit with \code{\link[VGAM]{vglm}} (\pkg{VGAM}) 
+#' with \code{family = cumulative(reverse = TRUE)}
 #' @return A list consisting of 
 #' \item{chi.sq}{The chi-squared test statistic}
 #' \item{df}{The degrees of freedom parameter for the chi-squared distribution}
 #' \item{p.value}{The associated p-value}
 #' @author Jonah Gabry <jsg2201@@columbia.edu>
-#' @seealso \code{\link{vglm}} 
+#' @seealso \code{\link[VGAM]{vglm}} 
 #' @export
 #' @examples
 #' propOddsTest(fit, relaxed.fit)

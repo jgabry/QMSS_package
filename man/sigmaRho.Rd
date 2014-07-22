@@ -6,7 +6,7 @@
 sigmaRho(fit)
 }
 \arguments{
-\item{fit}{A model fit with \code{\link{plm}} (\pkg{plm}) and
+\item{fit}{A model fit with \code{\link[plm]{plm}} (\pkg{plm}) and
 \code{model = "within"} or \code{model = "random"}.}
 }
 \value{
@@ -32,6 +32,6 @@ sigmaRho(fit)
 Jonah Gabry <jsg2201@columbia.edu>
 }
 \seealso{
-\code{\link{plm}}
+\code{\link[plm]{plm}}
 }
 

@@ -1,6 +1,6 @@
 #' Compute standardized regression coefficients
 #'
-#' @param fit A model fit with \code{lm}.
+#' @param fit A model fit with \code[stats]{lm}.
 #' @return Standardized (beta) coefficients from a linear model.
 #' @author Jonah Gabry <jsg2201@@columbia.edu>
 #' @export

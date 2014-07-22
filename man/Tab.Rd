@@ -34,4 +34,7 @@ with(GSS_2010, Tab(partyid, digits = 3, useNA = "ifany"))
 \author{
 Jonah Gabry <jsg2201@columbia.edu>
 }
+\seealso{
+\code{\link[stats]{xtabs}}, \code{\link[base]{table}}, \code{\link[base]{prop.table}}
+}
 

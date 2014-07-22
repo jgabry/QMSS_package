@@ -6,7 +6,7 @@
 rho(fit)
 }
 \arguments{
-\item{fit}{A model fit with \code{\link{lmer}} (\pkg{lme4}).}
+\item{fit}{A model fit with \code{\link[lme4]{lmer}} (\pkg{lme4}).}
 }
 \value{
 A number between 0 and 1. The fraction of variance due to u_i.

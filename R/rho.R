@@ -1,7 +1,7 @@
 #' Compute fraction of variance due to u_i
 #'
 #'
-#' @param fit A model fit with \code{\link{lmer}} (\pkg{lme4}).
+#' @param fit A model fit with \code{\link[lme4]{lmer}} (\pkg{lme4}).
 #' @details Note that in the output from \code{summary(fit)} the Std. Dev. column in the Random Effects section
 #' contains what STATA refers to as sigma_u and sigma_e. STATA also reports rho (fraction of variance due to u_i)
 #' but this is not given in the R output. The \code{rho} function computes this value.

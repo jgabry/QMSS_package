@@ -11,19 +11,19 @@ TabX(x, y, digits = 3)
 \item{digits}{Number of digits for rounding proportions.}
 }
 \description{
-\code{TabX} is a modified version of \code{\link{CrossTable}} (\pkg{gmodels}). \code{TabX}
-will print a summary table with cell counts and column proportions (similar to STATA's
+\code{TabX} is a modified version of \code{\link[gmodels]{CrossTable}} (\pkg{gmodels}).
+\code{TabX} will print a summary table with cell counts and column proportions (similar to STATA's
 \code{tabulate} \emph{varname1} \emph{varname2}, \code{col}).
 }
 \examples{
 with(GSS_2010, TabX(sex, race))
 }
 \author{
-Jonah Gabry <jsg2201@columbia.edu> See \code{\link{CrossTable}} in \pkg{gmodels}
+Jonah Gabry <jsg2201@columbia.edu> See \code{\link[gmodels]{CrossTable}} in \pkg{gmodels}
 for the authors of the function on which \code{TabX} is based.
 }
 \seealso{
-\code{\link{CrossTable}}, \code{\link{xtabs}}, \code{\link{table}},
-\code{\link{prop.table}}
+\code{\link[gmodels]{CrossTable}}, \code{\link[stats]{xtabs}},
+\code{\link[base]{table}}, \code{\link[base]{prop.table}}
 }
 

@@ -6,7 +6,7 @@
 clusterSE(fit, cluster.var, data)
 }
 \arguments{
-\item{fit}{A model fit with \code{\link{plm}} (\pkg{plm}).}
+\item{fit}{A model fit with \code{\link[plm]{plm}} (\pkg{plm}).}
 
 \item{cluster.var}{A character string naming the grouping variable.}
 
@@ -14,14 +14,14 @@ clusterSE(fit, cluster.var, data)
 if \code{cluster.var} is not included in \code{index} (see Examples below).}
 }
 \value{
-Output from \code{coeftest} (\pkg{lmtest}) but with clustered standard errors.
+Output from \code[lmtest]{coeftest} (\pkg{lmtest}) but with clustered standard errors.
 }
 \description{
 Compute clustered standard errors.
 }
 \note{
 \code{clusterSE} does not work with models fit with \code{lm}, however a similar model
-can be fit with \code{\link{plm}} using the option \code{model = "pooling"}. You can then
+can be fit with \code{\link[plm]{plm}} using the option \code{model = "pooling"}. You can then
 use \code{clusterSE} to compute clustered standard errors and retest the coefficients.
 }
 \examples{
@@ -38,6 +38,6 @@ clusterSE(fit, cluster.var = "state") # don't need data argument since "state" i
 Jonah Gabry <jsg2201@columbia.edu>
 }
 \seealso{
-\code{\link{coeftest}}
+\code{\link[lmtest]{coeftest}}
 }
 

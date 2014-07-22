@@ -6,11 +6,11 @@
 predProb(model, predData, ci = TRUE, level = 0.95)
 }
 \arguments{
-\item{model}{A \code{\link{glm}} model fit with \code{binomial} family and
+\item{model}{A \code{\link[stats]{glm}} model fit with \code{binomial} family and
 either a \code{logit} or \code{probit} link function.}
 
-\item{predData}{A data frame to pass to \code{\link{predict.glm}} in which to look for variables
-with which to predict.}
+\item{predData}{A data frame to pass to \code{\link[stats]{predict.glm}} in which to look
+for variables with which to predict.}
 
 \item{ci}{Logical value indicating whether to compute confidence intervals.}
 

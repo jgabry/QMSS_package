@@ -8,7 +8,7 @@ RDplot(x, gran = 400, bins = 100, which = 1, range, col = c("black",
   main = "Plot of Regression Discontinuity", ...)
 }
 \arguments{
-\item{x}{A model fit with \code{\link{RDestimate}} (\pkg{rdd})}
+\item{x}{A model fit with \code{\link[rdd]{RDestimate}} (\pkg{rdd})}
 
 \item{gran}{The granularity of the plot. This specifies the number of points
 to either side of the cutpoint for which the estimate is calculated.}
@@ -39,15 +39,16 @@ from the data.}
 \item{main}{Title for the plot}
 }
 \description{
-\code{RDplot} adds additional features to \code{\link{plot.RD}} (\pkg{rdd}).
+\code{RDplot} adds additional features to \code{\link[rdd]{plot.RD}} (\pkg{rdd}).
 }
 \examples{
 RDplot()
 }
 \author{
-Jonah Gabry <jsg2201@columbia.edu>
+Jonah Gabry <jsg2201@columbia.edu>. See \code{\link[rdd]{plot.RD}} in (\pkg{rdd})
+for the author of the original function.
 }
 \seealso{
-\code{\link{plot.RD}}
+\code{\link[rdd]{plot.RD}}
 }
 

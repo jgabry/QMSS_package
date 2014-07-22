@@ -6,9 +6,11 @@
 propOddsTest(fit, relaxed.fit)
 }
 \arguments{
-\item{fit}{An ordinal logit model fit with \code{vglm} (\pkg{VGAM}) with \code{family = propodds}}
+\item{fit}{An ordinal logit model fit with \code{\link[VGAM]{vglm}} (\pkg{VGAM})
+with \code{family = propodds}.}
 
-\item{relaxed.fit}{An ordinal logit model fit with \code{vglm} (\pkg{VGAM}) with \code{family = cumulative(reverse = TRUE)}}
+\item{relaxed.fit}{An ordinal logit model fit with \code{\link[VGAM]{vglm}} (\pkg{VGAM})
+with \code{family = cumulative(reverse = TRUE)}}
 }
 \value{
 A list consisting of
@@ -26,6 +28,6 @@ propOddsTest(fit, relaxed.fit)
 Jonah Gabry <jsg2201@columbia.edu>
 }
 \seealso{
-\code{\link{vglm}}
+\code{\link[VGAM]{vglm}}
 }
 

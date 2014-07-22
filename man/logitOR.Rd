@@ -6,13 +6,13 @@
 logitOR(fit, intercept = TRUE, level = 0.95)
 }
 \arguments{
-\item{fit}{A logit model fit with \code{\link{glm}}.}
+\item{fit}{A logit model fit with \code{\link[stats]{glm}}.}
 
 \item{intercept}{A logical value indicating whether the intercept should be included in the output.
 Defaults to \code{TRUE}. If \code{fit} does not include an intercept the \code{intercept} argument
 should be kept at the default value of \code{TRUE}.}
 
-\item{level}{The desired confidence level to be passed to \code{\link{confint.glm}} (\pkg{MASS}).}
+\item{level}{The desired confidence level to be passed to \code{\link[MASS]{confint.glm}} (\pkg{MASS}).}
 }
 \value{
 Odds ratios and confidence intervals for the parameters in \code{fit}.

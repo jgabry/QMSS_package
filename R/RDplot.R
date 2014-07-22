@@ -1,8 +1,8 @@
 #' Plot regression discontinuity
 #'
-#' \code{RDplot} adds additional features to \code{\link{plot.RD}} (\pkg{rdd}). 
+#' \code{RDplot} adds additional features to \code{\link[rdd]{plot.RD}} (\pkg{rdd}). 
 #'
-#' @param x A model fit with \code{\link{RDestimate}} (\pkg{rdd})
+#' @param x A model fit with \code{\link[rdd]{RDestimate}} (\pkg{rdd})
 #' @param gran The granularity of the plot. This specifies the number of points 
 #' to either side of the cutpoint for which the estimate is calculated.
 #' @param bins If the dependent variable is binary, include the number of bins 
@@ -22,8 +22,9 @@
 #' @param xlab Label for the horizontal axis
 #' @param ylab Label for the vertical axis
 #' @param main Title for the plot
-#' @author Jonah Gabry <jsg2201@@columbia.edu>
-#' @seealso \code{\link{plot.RD}} 
+#' @author Jonah Gabry <jsg2201@@columbia.edu>. See \code{\link[rdd]{plot.RD}} in (\pkg{rdd})
+#' for the author of the original function. 
+#' @seealso \code{\link[rdd]{plot.RD}} 
 #' @export
 #' @examples
 #' RDplot()

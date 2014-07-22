@@ -8,6 +8,7 @@
 #' percentage, and cumulative percentage of 0 will be reported. 
 #' @return A table of counts, percentages, and cumulative percentages for levels of \code{var}. 
 #' @author Jonah Gabry <jsg2201@@columbia.edu>
+#' @seealso \code{\link[stats]{xtabs}}, \code{\link[base]{table}}, \code{\link[base]{prop.table}}
 #' @export
 #' @examples
 #' x <- c(1,1,1,2,3,3,NA,NA)

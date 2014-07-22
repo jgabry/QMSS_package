@@ -6,7 +6,7 @@
 stdCoef(fit)
 }
 \arguments{
-\item{fit}{A model fit with \code{lm}.}
+\item{fit}{A model fit with \code[stats]{lm}.}
 }
 \value{
 Standardized (beta) coefficients from a linear model.

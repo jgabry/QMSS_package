@@ -1,9 +1,9 @@
 #' Predicted probabilities and confidence intervals from logit or probit model
 #'
-#' @param model A \code{\link{glm}} model fit with \code{binomial} family and 
+#' @param model A \code{\link[stats]{glm}} model fit with \code{binomial} family and 
 #' either a \code{logit} or \code{probit} link function.
-#' @param predData A data frame to pass to \code{\link{predict.glm}} in which to look for variables 
-#' with which to predict. 
+#' @param predData A data frame to pass to \code{\link[stats]{predict.glm}} in which to look 
+#' for variables with which to predict. 
 #' @param ci Logical value indicating whether to compute confidence intervals. 
 #' @param level If \code{ci} is \code{TRUE} the confidence level to use. 
 #' @return A data frame with \code{predData} and the associated predicted probabilities. Confidence
