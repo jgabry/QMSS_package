@@ -6,11 +6,12 @@
 clusterSE(fit, cluster.var, data)
 }
 \arguments{
-\item{fit}{A model fit with \code{plm}.}
+\item{fit}{A model fit with \code{\link{plm}} (\pkg{plm}).}
 
 \item{cluster.var}{A character string naming the grouping variable.}
 
-\item{data}{A data frame containing \code{cluster.var}.}
+\item{data}{A data frame containing \code{cluster.var}. \code{data} is only needed
+if \code{cluster.var} is not included in \code{index} (see Examples below).}
 }
 \value{
 Output from \code{coeftest} (\pkg{lmtest}) but with clustered standard errors.
@@ -18,10 +19,25 @@ Output from \code{coeftest} (\pkg{lmtest}) but with clustered standard errors.
 \description{
 Compute clustered standard errors.
 }
+\note{
+\code{clusterSE} does not work with models fit with \code{lm}, however a similar model
+can be fit with \code{\link{plm}} using the option \code{model = "pooling"}. You can then
+use \code{clusterSE} to compute clustered standard errors and retest the coefficients.
+}
 \examples{
-clusterSE(fit, cluster.var, data)
+#' \dontrun{
+# Model from plm help page:
+data("Produc", package = "plm")
+fit <- plm(log(gsp) ~ log(pcap) + log(pc) + log(emp) + unemp,
+           data = Produc, index = c("state","year"), model = "random")
+
+clusterSE(fit, cluster.var = "state") # don't need data argument since "state" is included in index
+}
 }
 \author{
 Jonah Gabry <jsg2201@columbia.edu>
+}
+\seealso{
+\code{\link{coeftest}}
 }
 
