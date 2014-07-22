@@ -1,18 +1,20 @@
 #' Cross Tabulation
 #'
-#' \code{XTab} is a modified version of \code{\link{CrossTable}} (\pkg{gmodels}). 
-#'
+#' \code{TabX} is a modified version of \code{\link{CrossTable}} (\pkg{gmodels}). \code{TabX}
+#' will print a summary table with cell counts and column proportions (similar to STATA's
+#' \code{tabulate} \emph{varname1} \emph{varname2}, \code{col}).
+#' 
 #' @param x,y The variables for the cross tabulation. 
 #' @param digits Number of digits for rounding proportions. 
-#' @author Jonah Gabry <jsg2201@@columbia.edu> See \code{\link{CrossTable}} for the authors
-#' of the function on which \code{XTab} is based. 
-#' @seealso \code{\link{plot.RD}} 
+#' @author Jonah Gabry <jsg2201@@columbia.edu> See \code{\link{CrossTable}} in \pkg{gmodels} 
+#' for the authors of the function on which \code{TabX} is based. 
+#' @seealso \code{\link{CrossTable}}, \code{\link{xtabs}}, \code{\link{table}}, 
+#' \code{\link{prop.table}}
 #' @export
 #' @examples
-#' data("GSS_2010", package = "QMSS")
 #' with(GSS_2010, TabX(sex, race))
 
-TabX <- function(x, y, digits = 3, ...){
+TabX <- function(x, y, digits = 3){
   
   dig <- digits
   xName <- deparse(substitute(x))
@@ -47,7 +49,7 @@ TabX <- function(x, y, digits = 3, ...){
   
   printTheTable <- function() {
     xyNames <- abbreviate(c(xName,yName), min = 5, dot = T)
-    cat(rep(Rspaces,3), "[Y]", xyNames[2], collapse = "\n")
+    cat(rep(Rspaces, ncol(tab)), "[Y]", xyNames[2], collapse = "\n")
     cat("[X]", xyNames[1], collapse = "\n")
     cat(Rspaces, 
         formatC(dim2, width = maxC, format = "s"), 
@@ -67,16 +69,16 @@ TabX <- function(x, y, digits = 3, ...){
           collapse = "\n"
       )
       cat(Rspaces, 
-          formatC(Cprop[i, ], width = maxC, digits = dig, format = "f"), 
+          formatC(c(Cprop[i, ],Rsum[i]/Obs), width = maxC, digits = dig, format = "f"), 
           sep = " | ", 
           collapse = "\n"
       )
-      cat(Rspaces, 
-          formatC(c(Tprop[i, ],Rsum[i]/Obs), width = maxC, digits = dig, format = "f"), 
-          #         Cspaces, 
-          sep = " | ", 
-          collapse = "\n"
-      )
+#       cat(Rspaces, 
+#           formatC(c(Tprop[i, ],Rsum[i]/Obs), width = maxC, digits = dig, format = "f"), 
+#           #         Cspaces, 
+#           sep = " | ", 
+#           collapse = "\n"
+#       )
       cat(inner.Lines, 
           rep(Lines, ncol(tab) + 1), 
           sep = "|", 
@@ -88,13 +90,19 @@ TabX <- function(x, y, digits = 3, ...){
         sep = " | ", 
         collapse = "\n"
     )
-    cat(Rspaces, formatC(c(Csum/Obs, sum(Rsum/Obs)), width = maxC, digits = dig, format = "f"), 
-        #       Cspaces, 
-        sep = " | ", 
-        collapse = "\n"
-    )
+#     cat(" Row%", formatC(c(Csum/Obs, sum(Rsum/Obs)), width = maxC, digits = dig, format = "f"), 
+#         #       Cspaces, 
+#         sep = " | ", 
+#         collapse = "\n"
+#     )
+#     cat(Rspaces, 
+#         formatC(c(sum(Cprop[,1]),sum(Cprop[,2])), width = maxC, digits = dig, format = "f"), 
+#         Cspaces, 
+#         sep = " | ", 
+#         collapse = "\n"
+#     )
     cat(Rspaces, 
-        formatC(c(sum(Cprop[,1]),sum(Cprop[,2])), width = maxC, digits = dig, format = "f"), 
+        formatC(rep(1, ncol(tab)), width = maxC, digits = dig, format = "f"), 
         Cspaces, 
         sep = " | ", 
         collapse = "\n"
@@ -108,11 +116,10 @@ TabX <- function(x, y, digits = 3, ...){
   
   # Cell contents
   cat(rep("\n", 2))
-  cat("   Cell Contents\n")
+  cat("          || Key || \n")
   cat("|=========================|\n")
-  cat("|                   Count |\n")
-  cat("|    Count / Column Total |\n")
-  cat("|     Count / Table Total |\n")
+  cat("|               Frequency |\n")
+  cat("|       Column Proportion |\n")
   cat("|=========================|\n")
   cat("\n")
   cat("Total Observations in Table: ", Obs, "\n")

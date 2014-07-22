@@ -3,7 +3,7 @@
 \alias{TabX}
 \title{Cross Tabulation}
 \usage{
-TabX(x, y, digits = 3, ...)
+TabX(x, y, digits = 3)
 }
 \arguments{
 \item{x,y}{The variables for the cross tabulation.}
@@ -11,17 +11,19 @@ TabX(x, y, digits = 3, ...)
 \item{digits}{Number of digits for rounding proportions.}
 }
 \description{
-\code{XTab} is a modified version of \code{\link{CrossTable}} (\pkg{gmodels}).
+\code{TabX} is a modified version of \code{\link{CrossTable}} (\pkg{gmodels}). \code{TabX}
+will print a summary table with cell counts and column proportions (similar to STATA's
+\code{tabulate} \emph{varname1} \emph{varname2}, \code{col}).
 }
 \examples{
-data("GSS_2010", package = "QMSS")
 with(GSS_2010, TabX(sex, race))
 }
 \author{
-Jonah Gabry <jsg2201@columbia.edu> See \code{\link{CrossTable}} for the authors
-of the function on which \code{XTab} is based.
+Jonah Gabry <jsg2201@columbia.edu> See \code{\link{CrossTable}} in \pkg{gmodels}
+for the authors of the function on which \code{TabX} is based.
 }
 \seealso{
-\code{\link{plot.RD}}
+\code{\link{CrossTable}}, \code{\link{xtabs}}, \code{\link{table}},
+\code{\link{prop.table}}
 }
 
