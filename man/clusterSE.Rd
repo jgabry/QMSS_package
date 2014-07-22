@@ -25,7 +25,7 @@ can be fit with \code{\link{plm}} using the option \code{model = "pooling"}. You
 use \code{clusterSE} to compute clustered standard errors and retest the coefficients.
 }
 \examples{
-#' \dontrun{
+\dontrun{
 # Model from plm help page:
 data("Produc", package = "plm")
 fit <- plm(log(gsp) ~ log(pcap) + log(pc) + log(emp) + unemp,

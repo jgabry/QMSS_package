@@ -12,7 +12,7 @@
 #' @seealso \code{\link{coeftest}}
 #' @export
 #' @examples
-#' #' \dontrun{
+#' \dontrun{
 #' # Model from plm help page:
 #' data("Produc", package = "plm")
 #' fit <- plm(log(gsp) ~ log(pcap) + log(pc) + log(emp) + unemp,
