@@ -1,13 +1,13 @@
 #' Compute sigma_u, sigma_e, and rho after fixed or random effects model
 #'
 #'
-#' @param fit A fixed effects model fit with \code{\link{plm}} (\pkg{plm}) and 
-#' \code{model = "within"} or \code{model = "random"} 
+#' @param fit A model fit with \code{\link{plm}} (\pkg{plm}) and 
+#' \code{model = "within"} or \code{model = "random"}.  
 #' @return A numeric vector containing the named components \itemize{
 #' \item{\code{sigma_u}}{ Error due to differences between units.}
 #' \item{\code{sigma_e}}{ Error due to differences within units.}
 #' \item{\code{rho}}{ Proportion of variance due to unit effects.}
-#' }. Results also printed to the console. 
+#' } Results are also printed to the console. 
 #' @author Jonah Gabry <jsg2201@@columbia.edu>
 #' @seealso \code{\link{plm}}
 #' @export
