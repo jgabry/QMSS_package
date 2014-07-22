@@ -4,7 +4,7 @@
 #' @param cluster.var A character string naming the grouping variable.
 #' @param data A data frame containing \code{cluster.var}. \code{data} is only needed 
 #' if \code{cluster.var} is not included in \code{index} (see Examples below). 
-#' @return Output from \code[lmtest]{coeftest} (\pkg{lmtest}) but with clustered standard errors. 
+#' @return Output from \code{\link[lmtest]{coeftest}} (\pkg{lmtest}) but with clustered standard errors. 
 #' @author Jonah Gabry <jsg2201@@columbia.edu>
 #' @note \code{clusterSE} does not work with models fit with \code{lm}, however a similar model
 #' can be fit with \code{\link[plm]{plm}} using the option \code{model = "pooling"}. You can then 

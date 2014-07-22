@@ -14,7 +14,7 @@ clusterSE(fit, cluster.var, data)
 if \code{cluster.var} is not included in \code{index} (see Examples below).}
 }
 \value{
-Output from \code[lmtest]{coeftest} (\pkg{lmtest}) but with clustered standard errors.
+Output from \code{\link[lmtest]{coeftest}} (\pkg{lmtest}) but with clustered standard errors.
 }
 \description{
 Compute clustered standard errors.
