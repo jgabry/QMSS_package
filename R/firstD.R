@@ -6,7 +6,7 @@
 #' @details If \code{df} is specified then \code{group} must also be specified. So it is possible 
 #' to specify all three parameters, \code{var} and \code{group} only, or \code{var} by itself. 
 #' An example of when one might wish to omit both \code{group} and \code{df} is when using \code{firstD} 
-#' in conjunction with \pkg{plyr}'s \code{\link{ddply}} (see Examples). If \code{df} is specified then it 
+#' in conjunction with  \link[pkg]{plyr}'s \code{\link[plyr]{ddply}} (see Examples). If \code{df} is specified then it 
 #' should be sorted by \code{group} and, if necessary, a second variable (e.g. time) that orders the 
 #' observations of \code{var} in the appropriate sequence. 
 #' @return \code{firstD(var)} returns a first-differenced version of \code{var}. 

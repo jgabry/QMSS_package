@@ -21,4 +21,7 @@ Librarian(my.packages)
 \author{
 Jonah Gabry <jsg2201@columbia.edu>
 }
+\seealso{
+\code{\link[base]{library}}
+}
 
