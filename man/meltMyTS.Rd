@@ -6,14 +6,14 @@
 meltMyTS(mv.ts.object, time.var, keep.vars)
 }
 \arguments{
-\item{mv.ts.object}{a multivariate time series object created with \code{\link[stats]{ts}}.}
+\item{mv.ts.object}{A multivariate time series object created with \code{\link[stats]{ts}}.}
 
-\item{time.var}{A character string naming the time variable.
-to either side of the cutpoint for which the estimate is calculated.}
+\item{time.var}{A character string naming the time variable.}
 
 \item{keep.vars}{An optional character vector with names of variables to keep.
-Variables not named in \code{keep.vars} will be dropped. If \code{keep.vars} is
-not specified then all variables in \code{mv.ts.object} will kept.}
+Variables not named in \code{keep.vars} will be dropped.
+If \code{keep.vars} is not specified then all variables in \code{mv.ts.object}
+will be kept.}
 }
 \value{
 A molten data frame.
@@ -24,7 +24,7 @@ A molten data frame.
 with \code{\link[ggplot2]{ggplot}}.
 }
 \examples{
-See examples in documentation for \\code{\\link[QMSS]{ggMyTS}}.
+See examples in documentation for ggMyTS.
 }
 \author{
 Jonah Gabry <jsg2201@columbia.edu>. See \code{\link[reshape2]{melt}}
