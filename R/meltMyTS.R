@@ -30,6 +30,6 @@ meltMyTS <- function(mv.ts.object, time.var, keep.vars){
     melt.dat <- data.frame(mv.ts.object)[, keep.vars]
   }
   melt.dat <- melt(melt.dat, id.vars = time.var)
-  colnames(melt.dat)[which(colnames(plot.dat) == time.var)] <- "time"
+  colnames(melt.dat)[which(colnames(melt.dat) == time.var)] <- "time"
   return(melt.dat)
 }
