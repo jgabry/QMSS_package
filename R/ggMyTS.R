@@ -41,8 +41,8 @@ ggMyTS <- function(df, varlist, line = TRUE, point = TRUE, ...){
     stop("At least one of 'line' or 'point' must be TRUE") 
   }
   else{
-    if(line == TRUE) gg <- gg + geom_line(size = 1.25, ...)
-    if(point == TRUE) gg <- gg + geom_point(size = 3, ...)
+    if(line == TRUE) gg <- gg + geom_line(size = 1.25, aes(color = variable), ...)
+    if(point == TRUE) gg <- gg + geom_point(size = 3, aes(color = variable), ...)
   }
   gg + theme(legend.position = "bottom")
 } 
