@@ -11,9 +11,9 @@ meltMyTS(mv.ts.object, time.var, keep.vars)
 \item{time.var}{A character string naming the time variable.}
 
 \item{keep.vars}{An optional character vector with names of variables to keep.
-Variables not named in \code{keep.vars} will be dropped.
 If \code{keep.vars} is not specified then all variables in \code{mv.ts.object}
-will be kept.}
+will be kept. However, if any variables are named then all other variables will
+be dropped, except \code{time.var}, which is always kept.}
 }
 \value{
 A molten data frame.
