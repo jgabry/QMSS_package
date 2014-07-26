@@ -9,7 +9,8 @@ ggMyTS(df, varlist, ...)
 \item{df}{The data frame in which to look for variables to be plotted. Typically
 created with \code{\link[QMSS]{meltMyTS}} (\pkg{QMSS})}
 
-\item{varlist}{A character string or vector naming the variable(s) in \code{df} to plot.}
+\item{varlist}{A character string or vector naming the variable(s) in \code{df} to plot.
+If \code{varlist} is not specified, then all variables in \code{df} will be used.}
 
 \item{...}{Other options that will be passed to both \code{\link[ggplot2]{geom_line}}
 and \code{\link[ggplot2]{geom_point}}. See examples.}
@@ -27,7 +28,7 @@ keep.vars <- c("year", "n.confinan", "fulltime")
 plot.dat <- meltMyTS(mv.ts.object = by.year.ts,
                      time.var = "year", keep.vars = keep.vars)
 ggMyTS(plot.dat, varlist = c("n.confinan", "fulltime"))
-ggMyTS(plot.dat, "n.confinan", color = "forestgreen")
+ggMyTS(plot.dat, "n.confinan", color = "forestgreen", linetype = 2)
 }
 }
 \author{

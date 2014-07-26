@@ -7,9 +7,9 @@
 #' @param mv.ts.object A multivariate time series object created with \code{\link[stats]{ts}}.
 #' @param time.var A character string naming the time variable.
 #' @param keep.vars An optional character vector with names of variables to keep. 
-#' Variables not named in \code{keep.vars} will be dropped. 
 #' If \code{keep.vars} is not specified then all variables in \code{mv.ts.object} 
-#' will be kept.
+#' will be kept. However, if any variables are named then all other variables will
+#' be dropped, except \code{time.var}, which is always kept.   
 #' @return A molten data frame.
 #' @author Jonah Gabry <jsg2201@@columbia.edu>. See \code{\link[reshape2]{melt}} 
 #' in (\pkg{reshape2}) for the author of the original \code{melt} function. 
@@ -23,10 +23,14 @@ meltMyTS <- function(mv.ts.object, time.var, keep.vars){
   # keep.vars = character vector with names of variables to keep 
   # time.var = character string naming the time variable
   require(reshape2)
+  
   if(missing(keep.vars)) {
     melt.dat <- data.frame(mv.ts.object)
   }
   else {
+    if (!(time.var %in% keep.vars)){
+      keep.vars <- c(keep.vars, time.var)
+    }
     melt.dat <- data.frame(mv.ts.object)[, keep.vars]
   }
   melt.dat <- melt(melt.dat, id.vars = time.var)
