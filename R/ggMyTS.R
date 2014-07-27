@@ -47,5 +47,5 @@ ggMyTS <- function(df, varlist, line = TRUE, point = TRUE, pt.size = 3, line.siz
     if(point == TRUE) gg <- gg + geom_point(size = pt.size, aes(color = variable), ...)
   }
   
-  gg + theme(legend.position = "bottom") + scale_x_continuous(breaks = min(df$time):max(df$time))
+  gg + xlab("") + theme(legend.position = "bottom") + scale_x_continuous(breaks = min(df$time):max(df$time))
 } 
