@@ -3,8 +3,8 @@
 \alias{ggMyTS}
 \title{Easily plot time series trends with \code{\link[ggplot2]{ggplot}}}
 \usage{
-ggMyTS(df, varlist, line = TRUE, point = TRUE, pt.size = 3,
-  line.size = 1.25, ...)
+ggMyTS(df, varlist, line = TRUE, point = TRUE, pointsize = 3,
+  linewidth = 1.25, ...)
 }
 \arguments{
 \item{df}{The data frame in which to look for variables to be plotted. Typically
@@ -17,9 +17,9 @@ If \code{varlist} is not specified, then all variables in \code{df} will be used
 
 \item{point}{Should points be plotted? Defaults to \code{TRUE}.}
 
-\item{pt.size}{Size of the points, if \code{point == TRUE}.}
+\item{pointsize}{Size of the points, if \code{point == TRUE}.}
 
-\item{line.size}{Size of the line(s), if \code{line == TRUE}.}
+\item{linewidth}{Width of the line(s), if \code{line == TRUE}.}
 
 \item{...}{Other options that will be passed to \code{\link[ggplot2]{geom_line}}
 and \code{\link[ggplot2]{geom_point}}. See examples.}

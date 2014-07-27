@@ -9,8 +9,8 @@
 #' If \code{varlist} is not specified, then all variables in \code{df} will be used. 
 #' @param line Should lines be plotted? Defaults to \code{TRUE}. 
 #' @param point Should points be plotted? Defaults to \code{TRUE}.
-#' @param pt.size Size of the points, if \code{point == TRUE}.
-#' @param line.size Size of the line(s), if \code{line == TRUE}.
+#' @param pointsize Size of the points, if \code{point == TRUE}.
+#' @param linewidth Width of the line(s), if \code{line == TRUE}.
 #' @param ... Other options that will be passed to \code{\link[ggplot2]{geom_line}} 
 #' and \code{\link[ggplot2]{geom_point}}. See examples. 
 #' @note At least one of \code{line} or \code{point} must be \code{TRUE}.
@@ -29,7 +29,7 @@
 #' }
 #' 
 
-ggMyTS <- function(df, varlist, line = TRUE, point = TRUE, pt.size = 3, line.size = 1.25, ...){
+ggMyTS <- function(df, varlist, line = TRUE, point = TRUE, pointsize = 3, linewidth = 1.25, ...){
   require(ggplot2)
   # varlist = character vector with names of variables to use
   if(missing(varlist)){
@@ -43,8 +43,8 @@ ggMyTS <- function(df, varlist, line = TRUE, point = TRUE, pt.size = 3, line.siz
     stop("At least one of 'line' or 'point' must be TRUE") 
   }
   else{
-    if(line == TRUE) gg <- gg + geom_line(size = line.size, aes(color = variable), ...)
-    if(point == TRUE) gg <- gg + geom_point(size = pt.size, aes(color = variable), ...)
+    if(line == TRUE) gg <- gg + geom_line(size = linewidth, aes(color = variable), ...)
+    if(point == TRUE) gg <- gg + geom_point(size = pointsize, aes(color = variable), ...)
   }
   
   gg + xlab("") + theme(legend.position = "bottom") + scale_x_continuous(breaks = min(df$time):max(df$time))
