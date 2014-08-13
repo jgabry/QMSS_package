@@ -10,7 +10,7 @@ logitOR(fit, intercept = TRUE, level = 0.95)
 
 \item{intercept}{A logical value indicating whether the intercept should be included in the output.
 Defaults to \code{TRUE}. If \code{fit} does not include an intercept the \code{intercept} argument
-should be kept at the default value of \code{TRUE}.}
+should be left at the default value of \code{TRUE}.}
 
 \item{level}{The desired confidence level to be passed to \code{\link[MASS]{confint.glm}} (\pkg{MASS}).}
 }

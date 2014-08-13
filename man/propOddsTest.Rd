@@ -13,10 +13,7 @@ with \code{family = propodds}.}
 with \code{family = cumulative(reverse = TRUE)}}
 }
 \value{
-A list consisting of
-\item{chi.sq}{The chi-squared test statistic}
-\item{df}{The degrees of freedom parameter for the chi-squared distribution}
-\item{p.value}{The associated p-value}
+An object of class "htest".
 }
 \description{
 Test proportional odds assumption for ordinal logit models

@@ -14,11 +14,11 @@ for variables with which to predict.}
 
 \item{ci}{Logical value indicating whether to compute confidence intervals.}
 
-\item{level}{If \code{ci} is \code{TRUE} the confidence level to use.}
+\item{level}{The confidence level to use if \code{ci} is \code{TRUE}.}
 }
 \value{
-A data frame with \code{predData} and the associated predicted probabilities. Confidence
-intervals are included if argument \code{ci} is \code{TRUE}.
+A data frame with \code{predData} and the associated predicted probabilities.
+Confidence intervals are included if argument \code{ci} is \code{TRUE}.
 }
 \description{
 Predicted probabilities and confidence intervals from logit or probit model

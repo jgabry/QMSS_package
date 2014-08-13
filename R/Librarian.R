@@ -1,7 +1,7 @@
-#' Load multiple packages
+#' Load multiple packages with one command
 #'
-#' @param x A character vector of package names. 
-#' @details The \code{Librarian} function loads the packages named in \code{x}.  
+#' @param pkgs A character vector of package names. 
+#' @details The \code{Librarian} function loads the packages named in \code{pkgs}.  
 #' @author Jonah Gabry <jsg2201@@columbia.edu>
 #' @seealso \code{\link[base]{library}}
 #' @export
@@ -9,10 +9,10 @@
 #' my.packages <- c("car", "foreign")
 #' Librarian(my.packages)
 
-Librarian <- function(x){
-  invisible(
-    lapply(X = my.packages, 
-           FUN = require, 
-           character.only = TRUE)
-  )
+Librarian <- function(pkgs){  
+  invisible(lapply(
+    X = pkgs, 
+    FUN = require, 
+    character.only = TRUE
+  ))
 }

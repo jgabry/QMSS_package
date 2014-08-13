@@ -5,9 +5,9 @@
 #' @param predData A data frame to pass to \code{\link[stats]{predict.glm}} in which to look 
 #' for variables with which to predict. 
 #' @param ci Logical value indicating whether to compute confidence intervals. 
-#' @param level If \code{ci} is \code{TRUE} the confidence level to use. 
-#' @return A data frame with \code{predData} and the associated predicted probabilities. Confidence
-#' intervals are included if argument \code{ci} is \code{TRUE}. 
+#' @param level The confidence level to use if \code{ci} is \code{TRUE}. 
+#' @return A data frame with \code{predData} and the associated predicted probabilities. 
+#' Confidence intervals are included if argument \code{ci} is \code{TRUE}. 
 #' @author Jonah Gabry <jsg2201@@columbia.edu>
 #' @export
 #' @examples
@@ -27,7 +27,12 @@
 predProb <- function(model, predData, ci = TRUE, level = 0.95){
   
   link <- model$family$link
-  stopifnot(link %in% c("logit", "probit"))
+  bad_link <- !(link %in% c("logit", "probit"))
+  
+  if (bad_link) {
+    stop("Link function should be 'logit' or 'probit'")
+  }
+  
   fun <- ifelse(link == "probit", "pnorm", "plogis")
   
   if (ci == FALSE){
