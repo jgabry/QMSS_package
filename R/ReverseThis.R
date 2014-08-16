@@ -1,7 +1,7 @@
 #' Reverse-code a variable
 #'
-#' @param var A numeric or factor variable
-#' @return A reverse-coded version of \code{var} 
+#' @param var A numeric or factor variable.
+#' @return A reverse-coded version of \code{var}.
 #' @author Jonah Gabry <jsg2201@@columbia.edu>
 #' @export
 #' @examples

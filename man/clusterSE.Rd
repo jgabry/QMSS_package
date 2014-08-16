@@ -8,10 +8,10 @@ clusterSE(fit, cluster.var, data)
 \arguments{
 \item{fit}{A model fit with \code{\link[plm]{plm}} (\pkg{plm}).}
 
-\item{cluster.var}{A character string naming the grouping variable.}
+\item{cluster.var}{A character string naming the grouping/cluster variable.}
 
-\item{data}{A data frame containing \code{cluster.var}. \code{data} is only needed
-if \code{cluster.var} is not included in \code{index} (see Examples below).}
+\item{data}{A data frame containing \code{cluster.var} Only needed if
+\code{cluster.var} is not included in \code{index}. See 'Examples' below.}
 }
 \value{
 Output from \code{\link[lmtest]{coeftest}} (\pkg{lmtest}) but with clustered standard errors.

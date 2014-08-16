@@ -6,10 +6,10 @@
 ReverseThis(var)
 }
 \arguments{
-\item{var}{A numeric or factor variable}
+\item{var}{A numeric or factor variable.}
 }
 \value{
-A reverse-coded version of \code{var}
+A reverse-coded version of \code{var}.
 }
 \description{
 Reverse-code a variable

@@ -22,5 +22,6 @@ Tab <- function(var, digits = 2, useNA = c("no", "ifany", "always")) {
   Count <- table(var, useNA = useNA) 
   Pct <- 100*prop.table(Count) 
   Cum.Pct <- cumsum(Pct)
-  cbind(Count, Pct = round(Pct, digits), Cum.Pct = round(Cum.Pct, digits)) 
+  tab <- cbind(Count, Pct = round(Pct, digits), Cum.Pct = round(Cum.Pct, digits)) 
+  tab
 }
