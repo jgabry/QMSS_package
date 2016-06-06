@@ -8,11 +8,10 @@ R package for Greg Eirich's QMSS Courses at Columbia University
 
 Run the following code in R:
 
-`install.packages("devtools")`
-
-`library(devtools)`
-
-`install_github("jgabry/QMSS_package")`
-
+```{r}
+if (!require("devtools"))
+  install.packages("devtools")
+devtools::install_github("jgabry/QMSS_package")
+```
 
 After installation run `library(QMSS)` to load the package and `help(package = "QMSS")` to display the R documentation for the package.
