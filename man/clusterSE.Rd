@@ -11,8 +11,9 @@ clusterSE(fit, cluster.var, data)
 
 \item{cluster.var}{A character string naming the grouping/cluster variable.}
 
-\item{data}{A data frame containing \code{cluster.var} Only needed if 
-\code{cluster.var} is not included in \code{index}. See 'Examples' below.}
+\item{data}{A data frame containing \code{cluster.var}. Only needed if 
+\code{cluster.var} was not included in \code{index} when the model was fit
+using \code{\link[plm]{plm}}. See 'Examples' below.}
 }
 \value{
 Output from \code{\link[lmtest]{coeftest}} but with clustered
@@ -22,9 +23,9 @@ Output from \code{\link[lmtest]{coeftest}} but with clustered
 Clustered standard errors
 }
 \note{
-\code{clusterSE} does not work with models fit with \code{lm}, however
-  a similar model can be fit with \code{\link[plm]{plm}} using the option
-  \code{model = "pooling"}. You can then use \code{clusterSE} to compute
+\code{clusterSE} does not work with models fit with \code{lm}, however 
+  a similar model can be fit with \code{\link[plm]{plm}} using the option 
+  \code{model = "pooling"}. You can then use \code{clusterSE} to compute 
   clustered standard errors and retest the coefficients.
 }
 \examples{
@@ -36,6 +37,10 @@ fit <- plm(log(gsp) ~ log(pcap) + log(pc) + log(emp) + unemp,
 
 # don't need data argument since "state" is included in index 
 clusterSE(fit, cluster.var = "state") 
+
+# need data argument since "state" not included in index 
+fit2 <- update(fit, index = "year")
+clusterSE(fit2, cluster.var = "state", data = Produc)
 
 }
 \seealso{
