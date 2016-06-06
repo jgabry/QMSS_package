@@ -43,8 +43,8 @@ truncated by the min/max values of the running variable from the data.}
 }
 \description{
 \code{RDplot} adds a few additional features to \code{\link[rdd]{plot.RD}} 
-from the \pkg{rdd} package. The additional arguments are
-\code{col},\code{pts}, \code{xlab}, \code{ylab}, and \code{main}.
+from the \pkg{rdd} package. The additional arguments are \code{col},
+\code{pts}, \code{xlab}, \code{ylab}, and \code{main}.
 }
 \seealso{
 \code{\link[rdd]{plot.RD}} for the original function.

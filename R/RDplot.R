@@ -1,8 +1,8 @@
 #' Plot regression discontinuity
 #' 
 #' \code{RDplot} adds a few additional features to \code{\link[rdd]{plot.RD}} 
-#' from the \pkg{rdd} package. The additional arguments are
-#' \code{col},\code{pts}, \code{xlab}, \code{ylab}, and \code{main}.
+#' from the \pkg{rdd} package. The additional arguments are \code{col},
+#' \code{pts}, \code{xlab}, \code{ylab}, and \code{main}.
 #' 
 #' @export
 #' @inheritParams rdd::plot.RD
