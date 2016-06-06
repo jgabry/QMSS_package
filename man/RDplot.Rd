@@ -9,7 +9,7 @@ RDplot(x, gran = 400, bins = 100, which = 1, range, col = c("black",
   main = "Plot of Regression Discontinuity", ...)
 }
 \arguments{
-\item{x}{\code{rd} object, typically the result of \code{\link{RDestimate}}}
+\item{x}{\code{rd} object, typically the result of \code{\link[rdd]{RDestimate}}}
 
 \item{gran}{the granularity of the plot. This specifies the number of points to 
 either side of the cutpoint for which the estimate is calculated.}

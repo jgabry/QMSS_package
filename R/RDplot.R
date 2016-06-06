@@ -6,6 +6,7 @@
 #' 
 #' @export
 #' @inheritParams rdd::plot.RD
+#' @param x \code{rd} object, typically the result of \code{\link[rdd]{RDestimate}}
 #' @param col a vector of two colors to distinguish before and after the discontinuity
 #' @param pts should points be plotted?
 #' @param xlab label for the horizontal axis
@@ -25,6 +26,8 @@ RDplot <- function (x,
                     ylab = "",
                     main = "Plot of Regression Discontinuity",
                     ...) {
+  if (!requireNamespace("rdd", quietly = TRUE))
+    stop("Please install the 'rdd' package to use this function.")
   
   if (length(col) != 2)
     stop("'col' must contain two colors")
@@ -72,7 +75,7 @@ RDplot <- function (x,
     lupr <- vector(length = (gran %/% 2))
     for (i in 1:(gran %/% 2)) {
       sub <- d.l$X >= (lval[i] - bw) & d.l$X <= (lval[i] + bw)
-      w <- kernelwts(
+      w <- rdd::kernelwts(
         X = d.l$X[sub],
         center = lval[i],
         bw = bw,
@@ -97,7 +100,7 @@ RDplot <- function (x,
     rupr <- vector(length = (gran %/% 2))
     for (i in 1:(gran %/% 2)) {
       sub <- d.r$X >= (rval[i] - bw) & d.r$X <= (rval[i] + bw)
-      w <- kernelwts(
+      w <- rdd::kernelwts(
         X = d.r$X[sub],
         center = rval[i],
         bw = bw,

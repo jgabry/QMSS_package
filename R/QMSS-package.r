@@ -11,7 +11,6 @@
 #' @author Jonah Gabry <jsg2201@@columbia.edu>
 #' 
 #' @import stats
-#' @import rdd
 #' @importFrom grDevices dev.flush
 #' @importFrom graphics lines plot
 #' 
