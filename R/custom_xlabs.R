@@ -27,5 +27,7 @@
 #' }
 #' 
 custom_xlabs <- function(angle = 90, vjust = 0.5, ...) {
-  ggplot2::theme(axis.text.x = ggplot2::element_text(angle = angle, vjust = vjust, ...))
+  ggplot2::theme(
+    axis.text.x = ggplot2::element_text(angle = angle, vjust = vjust, ...)
+  )
 }
