@@ -1,24 +1,27 @@
-#' Easily plot time series trends with \code{\link[ggplot2]{ggplot}}
+#' Easily plot time series trends with ggplot
 #' 
 #' \code{ggMyTS} is primarily designed to be used with a data frame created with
-#' \code{\link[QMSS]{meltMyTS}} (\pkg{QMSS}).
+#' \code{\link[QMSS]{meltMyTS}}.
 #'
-#' @param df The data frame in which to look for variables to be plotted. Typically 
-#' created with \code{\link[QMSS]{meltMyTS}} (\pkg{QMSS})
-#' @param varlist A character string or vector naming the variable(s) in \code{df} to plot. 
-#' If \code{varlist} is not specified, then all variables in \code{df} will be used. 
-#' @param line Should lines be plotted? Defaults to \code{TRUE}. 
+#' @export
+#' @param df The data frame in which to look for variables to be plotted. 
+#'   Typically created with \code{\link[QMSS]{meltMyTS}} (\pkg{QMSS}).
+#' @param varlist A character string or vector naming the variable(s) in
+#'   \code{df} to plot. If \code{varlist} is not specified, then all variables
+#'   in \code{df} will be used.
+#' @param line Should lines be plotted? Defaults to \code{TRUE}.
 #' @param point Should points be plotted? Defaults to \code{TRUE}.
 #' @param pointsize Size of the points, if \code{point == TRUE}.
 #' @param linewidth Width of the line(s), if \code{line == TRUE}.
-#' @param ... Other options that will be passed to \code{\link[ggplot2]{geom_line}} 
-#' and \code{\link[ggplot2]{geom_point}}. See examples. 
-#' @note At least one of \code{line} or \code{point} must be \code{TRUE}.
-#' @return A \code{ggplot} object. 
-#' @author Jonah Gabry <jsg2201@@columbia.edu>. See \code{\link[ggplot2]{ggplot}} 
-#' for the author of the \code{ggplot} function. 
+#' @param ... Other options that will be passed to
+#'   \code{\link[ggplot2]{geom_line}} and \code{\link[ggplot2]{geom_point}}. See
+#'   examples.
+#' 
+#' @return A \code{ggplot} object that can be further customized using functions
+#'   in the \pkg{ggplot2} package.
+#'   
 #' @seealso \code{\link[QMSS]{meltMyTS}}
-#' @export
+#' 
 #' @examples
 #' \dontrun{
 #' keep.vars <- c("year", "n.confinan", "fulltime")        
@@ -30,22 +33,23 @@
 #' 
 
 ggMyTS <- function(df, varlist, line = TRUE, point = TRUE, pointsize = 3, linewidth = 1.25, ...){
-  require(ggplot2)
-  # varlist = character vector with names of variables to use
-  if(missing(varlist)){
-    gg <- ggplot(df, aes(time, value, colour = variable)) 
-  }
-  else{
+  if (missing(varlist)) {
     include <- with(df, variable %in% varlist)
-    gg <- ggplot(df[include,], aes(time, value, colour = variable))   
+    df <- df[include, ]
   }
-  if(line == FALSE & point == FALSE) {
+  gg <- ggplot2::ggplot(df, ggplot2::aes_string(x = "time", y = "value", colour = "variable")) 
+
+  if (!line && !point) {
     stop("At least one of 'line' or 'point' must be TRUE") 
-  }
-  else{
-    if(line == TRUE) gg <- gg + geom_line(size = linewidth, aes(color = variable), ...)
-    if(point == TRUE) gg <- gg + geom_point(size = pointsize, aes(color = variable), ...)
+  } else {
+    if (line) 
+      gg <- gg + ggplot2::geom_line(size = linewidth)
+    if (point)
+      gg <- gg + ggplot2::geom_point(size = pointsize)
   }
   
-  gg + xlab("") + theme(legend.position = "bottom") + scale_x_continuous(breaks = min(df$time):max(df$time))
+  gg + 
+    ggplot2::xlab("") + 
+    ggplot2::theme(legend.position = "bottom") + 
+    ggplot2::scale_x_continuous(breaks = min(df$time):max(df$time))
 } 

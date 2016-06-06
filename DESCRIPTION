@@ -1,18 +1,27 @@
 Package: QMSS
 Title: Quantitative Methods in the Social Sciences
 Description: Functions and more for QMSS G4015 Quantitative Analytic Techniques
-    graduate course at Columbia University taught by Greg Eirich
-Version: 0.1
+    graduate course at Columbia University taught by Greg Eirich.
+Version: 0.2
 Depends:
-    R (>= 3.0.2),
+    R (>= 3.0.2)
+Imports:
+    graphics,
+    grDevices,
+    ggplot2,
     lme4,
     lmtest,
     MASS,
     plm,
     plyr,
     rdd,
+    reshape2,
+    stats,
     VGAM
+Suggests:
+    gmodels
 Author: Jonah Gabry <jsg2201@columbia.edu>
 Maintainer: Jonah Gabry <jsg2201@columbia.edu>
 License: GPL (>= 2)
 LazyData: true
+RoxygenNote: 5.0.1

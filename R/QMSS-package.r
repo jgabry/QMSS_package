@@ -4,7 +4,15 @@
 #' Analytic Techniques graduate course at Columbia University taught 
 #' by Greg Eirich.
 #'
-#' @name QMSS
-#' @author Jonah Gabry <jsg2201@@columbia.edu>
 #' @docType package
+#' @name QMSS-package
+#' @aliases QMSS
+#' 
+#' @author Jonah Gabry <jsg2201@@columbia.edu>
+#' 
+#' @import stats
+#' @import rdd
+#' @importFrom grDevices dev.flush
+#' @importFrom graphics lines plot
+#' 
 NULL

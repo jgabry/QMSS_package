@@ -1,37 +1,38 @@
 #' Plot regression discontinuity
-#'
-#' \code{RDplot} adds additional features to \code{\link[rdd]{plot.RD}} (\pkg{rdd}). 
-#'
+#' 
+#' \code{RDplot} adds additional features to \code{\link[rdd]{plot.RD}} from the
+#' \pkg{rdd} package.
+#' 
+#' @export
 #' @param x A model fit with \code{\link[rdd]{RDestimate}} (\pkg{rdd})
 #' @param gran The granularity of the plot. This specifies the number of points 
-#' to either side of the cutpoint for which the estimate is calculated.
+#'   to either side of the cutpoint for which the estimate is calculated.
 #' @param bins If the dependent variable is binary, include the number of bins 
-#' within which to average
-#' @param which Identifies which of the available plots to display. For a sharp design, 
-#' the only possibility is 1, the plot of the running variable against the outcome variable. 
-#' For a fuzzy design, an additional plot, 2, may also be displayed, showing the relationship 
-#' between the running variable and the treatment variable. Both plots may be displayed 
-#' with which=c(1,2)
-#' @param range The range of values of the running variable for which to plot. This should 
-#' be a vector of length two of the format c(min,max). To plot from the minimum to the maximum 
-#' value, simply enter c("min","max"). The default is a window 20 times wider than the first 
-#' listed bandwidth from the rd object, truncated by the min/max values of the running variable 
-#' from the data.
-#' @param col Colors to distinguish before and after the discontinuity. 
-#' @param pts Should points be plotted. Defaults to TRUE. 
+#'   within which to average
+#' @param which Identifies which of the available plots to display. For a sharp
+#'   design, the only possibility is 1, the plot of the running variable against
+#'   the outcome variable. For a fuzzy design, an additional plot, 2, may also
+#'   be displayed, showing the relationship between the running variable and the
+#'   treatment variable. Both plots may be displayed with which=c(1,2)
+#' @param range The range of values of the running variable for which to plot.
+#'   This should be a vector of length two of the format c(min,max). To plot
+#'   from the minimum to the maximum value, simply enter c("min","max"). The
+#'   default is a window 20 times wider than the first listed bandwidth from the
+#'   rd object, truncated by the min/max values of the running variable from the
+#'   data.
+#' @param col Colors to distinguish before and after the discontinuity.
+#' @param pts Should points be plotted. Defaults to TRUE.
 #' @param xlab Label for the horizontal axis
 #' @param ylab Label for the vertical axis
 #' @param main Title for the plot
-#' @author Jonah Gabry <jsg2201@@columbia.edu>. See \code{\link[rdd]{plot.RD}} in (\pkg{rdd})
-#' for the author of the original function. 
+#' @param ... Currently unused.
+#' 
 #' @seealso \code{\link[rdd]{plot.RD}} 
-#' @export
-#' @examples
-#' RDplot()
-
+#' 
 RDplot <- function (x, gran = 400, bins = 100, which = 1, range, 
                     col = c("black", "black"), pts = TRUE, 
-                    xlab = "", ylab = "", main = "Plot of Regression Discontinuity", ...) 
+                    xlab = "", ylab = "", 
+                    main = "Plot of Regression Discontinuity", ...) 
 {
   labs <- c(xlab, ylab, main)
   frm <- FALSE
@@ -112,16 +113,14 @@ RDplot <- function (x, gran = 400, bins = 100, which = 1, range,
                   1)
       nY <- rep(NA, length(nX))
       for (i in (1:(length(nX) - 1))) {
-        if (sum(!is.na(d$Y[d$X > nX[i] & d$X <= nX[i + 
-                                                     1]])) == 0) 
+        if (sum(!is.na(d$Y[d$X > nX[i] & d$X <= nX[i + 1]])) == 0) 
           next
-        nY[i] <- sum(d$Y[d$X > nX[i] & d$X <= nX[i + 
-                                                   1]], na.rm = TRUE)/sum(!is.na(d$Y[d$X > nX[i] & 
-                                                                                       d$X <= nX[i + 1]]))
+        nY[i] <- sum(d$Y[d$X > nX[i] & d$X <= nX[i + 1]], na.rm = TRUE) / sum(!is.na(d$Y[d$X > nX[i] & d$X <= nX[i + 1]]))
       }
       sub <- nX >= range[1] & nX <= range[2]
       subl <- lval >= range[1] & lval <= range[2]
       subr <- rval >= range[1] & rval <= range[2]
+      
       # added type = ifelse(pts == TRUE, "p", "n")
       plot(nX, nY, type = ifelse(pts == TRUE, "p", "n"), pch = 20, cex = 0.5, col = "black", 
            xlim = c(range[1], range[2]), 
