@@ -23,8 +23,8 @@ in \code{df} will be used.}
 
 \item{linewidth}{Width of the line(s), if \code{line} is \code{TRUE}.}
 
-\item{...}{Other arguments be passed to \code{\link[ggplot2]{geom_line}} and
-\code{\link[ggplot2]{geom_point}}. See examples.}
+\item{...}{Arguments passed to \code{\link[ggplot2]{geom_line}} and
+\code{\link[ggplot2]{geom_point}}.}
 }
 \value{
 A ggplot object that can be further customized using functions
@@ -36,11 +36,10 @@ A ggplot object that can be further customized using functions
 }
 \examples{
 \dontrun{
-keep.vars <- c("year", "n.confinan", "fulltime")        
-plot.dat <- meltMyTS(mv.ts.object = by.year.ts,
-                     time.var = "year", keep.vars = keep.vars)
-ggMyTS(plot.dat, varlist = c("n.confinan", "fulltime"))
-ggMyTS(plot.dat, "n.confinan", color = "forestgreen", point = F, linetype = 2)                      
+ts.data <- ts(cbind(year = 1950:1999, x1 = rnorm(50, sd = 1), x2 = rnorm(50, sd = 1)))
+plot.dat <- meltMyTS(ts.data, time.var = "year")
+ggMyTS(plot.dat, varlist = c("x1", "x2")) + 
+   ggplot2::scale_x_continuous(breaks = seq(1950,1999, by = 5))
 }
 
 }
