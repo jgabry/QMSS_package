@@ -38,7 +38,7 @@ ggMyTS <-
            pointsize = 3,
            linewidth = 1.25,
            ...) {
-    if (missing(varlist)) {
+    if (!missing(varlist)) {
       include <- with(df, variable %in% varlist)
       df <- df[include, ]
     }
