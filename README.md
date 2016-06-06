@@ -1,6 +1,8 @@
 QMSS_package
 ============
 
+[![Travis-CI Build Status](https://travis-ci.org/jgabry/QMSS_package.svg?branch=update)](https://travis-ci.org/jgabry/QMSS_package)
+
 R package for Greg Eirich's QMSS Courses at Columbia University
 
 
