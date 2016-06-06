@@ -15,6 +15,7 @@ Librarian <- function(pkgs){
   invisible(lapply(
     X = pkgs, 
     FUN = library, 
-    character.only = TRUE
+    character.only = TRUE,
+    logical.return = TRUE
   ))
 }

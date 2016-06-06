@@ -14,7 +14,7 @@ Load multiple packages with one command
 }
 \examples{
 \dontrun{
-my.packages <- c("car", "foreign")
+my.packages <- c("ggplot2", "MASS", "plm")
 Librarian(my.packages)
 }
 
