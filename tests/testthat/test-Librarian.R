@@ -1,7 +1,7 @@
 library(QMSS)
 context("Librarian")
 
-my_pkgs <- c("ggplot2", "lmtest")
+my_pkgs <- c("ggplot2", "reshape2")
 
 test_that("Library loads packages", {
   expect_false(any(my_pkgs %in% .packages()))
