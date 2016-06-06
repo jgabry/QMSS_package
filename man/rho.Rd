@@ -2,7 +2,8 @@
 % Please edit documentation in R/rho.R
 \name{rho}
 \alias{rho}
-\title{Compute fraction of variance due to u_i}
+\title{Compute fraction of variance due to u_i after fitting a model with
+\code{lmer}}
 \usage{
 rho(fit)
 }
@@ -13,7 +14,8 @@ rho(fit)
 A number between 0 and 1. The fraction of variance due to u_i.
 }
 \description{
-Compute fraction of variance due to u_i
+Compute fraction of variance due to u_i after fitting a model with
+\code{lmer}
 }
 \details{
 Note that in the output from \code{summary(fit)} the Std. Dev.

@@ -11,9 +11,11 @@
 #' @return Odds ratios and confidence intervals for the parameters in \code{fit}.
 #' 
 #' @examples
-#' Y <- GSS_2010$realinc;  X <- with(GSS_2010, cbind(age, educ))  
-#' Y <- cut(Y, breaks=c(-Inf, median(Y, na.rm = T), Inf), 
-#'             labels=c("Low", "High"))
+#' Y <- GSS_2010$realinc
+#' Y <- cut(Y,
+#'          breaks = c(-Inf, median(Y, na.rm = TRUE), Inf),
+#'          labels = c("Low", "High"))
+#' X <- with(GSS_2010, cbind(age, educ))
 #' fit <- glm(Y ~ X, family = binomial)
 #' logitOR(fit)
 #' logitOR(fit, intercept = FALSE, level = 0.90)
@@ -22,11 +24,8 @@ logitOR <- function(fit, intercept = TRUE, level = 0.95){
   OddsRatio <- exp(coef(fit))
   ci <- exp(confint(fit, level = level))
   out <- cbind(OddsRatio, ci)
-  
-  if (!intercept) {
+  if (!intercept)
     out <- out[-1,, drop=FALSE]
-    return(out)
-  }
   
   out
 }

@@ -19,12 +19,6 @@ An object of class "htest".
 \description{
 Test proportional odds assumption for ordinal logit models
 }
-\examples{
-\dontrun{
-propOddsTest(fit, relaxed.fit)
-}
-
-}
 \seealso{
 \code{\link[VGAM]{vglm}}
 }

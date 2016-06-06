@@ -29,11 +29,13 @@ Clustered standard errors
 }
 \examples{
 # Model from plm help page:
-data("Produc", package = "plm")
+library(plm)
+data("Produc")
 fit <- plm(log(gsp) ~ log(pcap) + log(pc) + log(emp) + unemp,
            data = Produc, index = c("state","year"), model = "random")
 
-clusterSE(fit, cluster.var = "state") # don't need data argument since "state" is included in index 
+# don't need data argument since "state" is included in index 
+clusterSE(fit, cluster.var = "state") 
 
 }
 \seealso{

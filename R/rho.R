@@ -1,4 +1,5 @@
-#' Compute fraction of variance due to u_i
+#' Compute fraction of variance due to u_i after fitting a model with
+#' \code{lmer}
 #'
 #'
 #' @param fit A model fit with \code{\link[lme4]{lmer}}.
@@ -17,6 +18,8 @@
 #' rho(fit)
 #'
 rho <- function(fit){
+  if (!requireNamespace("lme4", quietly = TRUE))
+    stop("Please install the 'lme4' package to use this function.")
   varcor <- lme4::VarCorr(fit)
   varcor <- as.data.frame(varcor)[, "sdcor"]
   sigma_u <- varcor[1] 

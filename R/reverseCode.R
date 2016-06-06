@@ -7,9 +7,9 @@
 #' 
 #' @examples
 #' x <- c(1,1,1,2,3,3)
-#' ReverseThis(x)
+#' reverseCode(x)
 #' 
-ReverseThis <- function(var){
+reverseCode <- function(var){
   nvar <- as.numeric(var)
   max <- max(nvar, na.rm = TRUE)
   min <- min(nvar, na.rm = TRUE)
@@ -21,4 +21,16 @@ ReverseThis <- function(var){
   
   levs <- levels(var)
   factor(reversed, labels = rev(levs))
+}
+
+#' ReverseThis (Deprecated)
+#' 
+#' Use \code{\link{reverseCode}} instead.
+#' 
+#' @export
+#' @inheritParams reverseCode
+#' 
+ReverseThis <- function(var) {
+  .Deprecated("reverseCode")
+  reverseCode(var)
 }

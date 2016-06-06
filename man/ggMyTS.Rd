@@ -9,7 +9,7 @@ ggMyTS(df, varlist, line = TRUE, point = TRUE, pointsize = 3,
 }
 \arguments{
 \item{df}{The data frame in which to look for variables to be plotted. 
-Typically created with \code{\link[QMSS]{meltMyTS}} (\pkg{QMSS}).}
+Typically created with \code{\link{meltMyTS}}.}
 
 \item{varlist}{A character string or vector naming the variable(s) in
 \code{df} to plot. If \code{varlist} is not specified, then all variables
@@ -19,21 +19,20 @@ in \code{df} will be used.}
 
 \item{point}{Should points be plotted? Defaults to \code{TRUE}.}
 
-\item{pointsize}{Size of the points, if \code{point == TRUE}.}
+\item{pointsize}{Size of the points, if \code{point} is \code{TRUE}.}
 
-\item{linewidth}{Width of the line(s), if \code{line == TRUE}.}
+\item{linewidth}{Width of the line(s), if \code{line} is \code{TRUE}.}
 
-\item{...}{Other options that will be passed to
-\code{\link[ggplot2]{geom_line}} and \code{\link[ggplot2]{geom_point}}. See
-examples.}
+\item{...}{Other arguments be passed to \code{\link[ggplot2]{geom_line}} and
+\code{\link[ggplot2]{geom_point}}. See examples.}
 }
 \value{
-A \code{ggplot} object that can be further customized using functions
+A ggplot object that can be further customized using functions
   in the \pkg{ggplot2} package.
 }
 \description{
 \code{ggMyTS} is primarily designed to be used with a data frame created with
-\code{\link[QMSS]{meltMyTS}}.
+\code{\link{meltMyTS}}.
 }
 \examples{
 \dontrun{
@@ -46,6 +45,6 @@ ggMyTS(plot.dat, "n.confinan", color = "forestgreen", point = F, linetype = 2)
 
 }
 \seealso{
-\code{\link[QMSS]{meltMyTS}}
+\code{\link{meltMyTS}}
 }
 

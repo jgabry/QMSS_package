@@ -18,13 +18,18 @@
 #' 
 #' @examples
 #' # Model from plm help page:
-#' data("Produc", package = "plm")
+#' library(plm)
+#' data("Produc")
 #' fit <- plm(log(gsp) ~ log(pcap) + log(pc) + log(emp) + unemp,
 #'            data = Produc, index = c("state","year"), model = "random")
 #' 
-#' clusterSE(fit, cluster.var = "state") # don't need data argument since "state" is included in index 
+#' # don't need data argument since "state" is included in index 
+#' clusterSE(fit, cluster.var = "state") 
 #' 
 clusterSE <- function(fit, cluster.var, data){
+  if (!requireNamespace("lmtest", quietly = TRUE))
+    stop("Please install the 'lmtest' package to use this function.")
+  
   # get number of clusters and observations
   if (missing(data) & cluster.var %in% colnames(plm::index(fit))){
     cvar <- plm::index(fit, cluster.var)
@@ -38,7 +43,7 @@ clusterSE <- function(fit, cluster.var, data){
   }
   
   # compute degrees of freedom and variance-covariance matrix
-  df <- (n/(n - 1)) * (N - 1)/fit$df.residual
+  df <- (n / (n - 1)) * (N - 1) / fit$df.residual
   vcov <- df * plm::vcovHC(fit, type = "HC0", cluster = "group")
   
   lmtest::coeftest(fit, vcov = vcov)

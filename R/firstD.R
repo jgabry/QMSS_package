@@ -34,15 +34,15 @@
 #' X <- rpois(9, 10)
 #' Xdiff <- firstD(X, id)
 #' 
-#' # Omitting group and df 
 #' \dontrun{
+#' # Omitting group and df 
 #' library(plyr)
 #' df <- data.frame(id = rep(1:3, each = 3), X = rpois(9, 10), Y = rpois(9, 5))
 #' ddply(df, "id", mutate, Xdiff = firstD(X), Ydiff = firstD(Y))
 #' }
 firstD <- function(var, group, df){
   if(missing(group) & !missing(df))
-    stop("if df is specified then group must also be specified")
+    stop("if 'df' is specified then 'group' must also be specified")
   
   fD <- function(j){ 
     c(NA, diff(j)) 

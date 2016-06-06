@@ -49,8 +49,8 @@ id <- rep(1:3, each = 3)
 X <- rpois(9, 10)
 Xdiff <- firstD(X, id)
 
-# Omitting group and df 
 \dontrun{
+# Omitting group and df 
 library(plyr)
 df <- data.frame(id = rep(1:3, each = 3), X = rpois(9, 10), Y = rpois(9, 5))
 ddply(df, "id", mutate, Xdiff = firstD(X), Ydiff = firstD(Y))

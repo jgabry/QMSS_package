@@ -23,9 +23,11 @@ Odds ratios and confidence intervals for the parameters in \code{fit}.
 Table of odds ratios and confidence intervals for logit models
 }
 \examples{
-Y <- GSS_2010$realinc;  X <- with(GSS_2010, cbind(age, educ))  
-Y <- cut(Y, breaks=c(-Inf, median(Y, na.rm = T), Inf), 
-            labels=c("Low", "High"))
+Y <- GSS_2010$realinc
+Y <- cut(Y,
+         breaks = c(-Inf, median(Y, na.rm = TRUE), Inf),
+         labels = c("Low", "High"))
+X <- with(GSS_2010, cbind(age, educ))
 fit <- glm(Y ~ X, family = binomial)
 logitOR(fit)
 logitOR(fit, intercept = FALSE, level = 0.90)

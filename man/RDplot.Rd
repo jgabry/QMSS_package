@@ -9,42 +9,44 @@ RDplot(x, gran = 400, bins = 100, which = 1, range, col = c("black",
   main = "Plot of Regression Discontinuity", ...)
 }
 \arguments{
-\item{x}{A model fit with \code{\link[rdd]{RDestimate}} (\pkg{rdd})}
+\item{x}{\code{rd} object, typically the result of \code{\link{RDestimate}}}
 
-\item{gran}{The granularity of the plot. This specifies the number of points 
-to either side of the cutpoint for which the estimate is calculated.}
+\item{gran}{the granularity of the plot. This specifies the number of points to 
+either side of the cutpoint for which the estimate is calculated.}
 
-\item{bins}{If the dependent variable is binary, include the number of bins 
+\item{bins}{if the dependent variable is binary, include the number of bins 
 within which to average}
 
-\item{which}{Identifies which of the available plots to display. For a sharp
-design, the only possibility is 1, the plot of the running variable against
-the outcome variable. For a fuzzy design, an additional plot, 2, may also
-be displayed, showing the relationship between the running variable and the
-treatment variable. Both plots may be displayed with which=c(1,2)}
+\item{which}{identifies which of the available plots to display. For a sharp 
+design, the only possibility is \code{1}, the plot of the running variable 
+against the outcome variable. For a fuzzy design, an additional plot, \code{2},
+may also be displayed, showing the relationship between the running variable and
+the treatment variable. Both plots may be displayed with \code{which=c(1,2)}.}
 
-\item{range}{The range of values of the running variable for which to plot.
-This should be a vector of length two of the format c(min,max). To plot
-from the minimum to the maximum value, simply enter c("min","max"). The
-default is a window 20 times wider than the first listed bandwidth from the
-rd object, truncated by the min/max values of the running variable from the
-data.}
+\item{range}{the range of values of the running variable for which to plot. This
+should be a vector of length two of the format \code{c(min,max)}. To plot
+from the minimum to the maximum value, simply enter \code{c("min","max")}. The default 
+is a window 20 times wider than the first listed bandwidth from the \code{rd} object, 
+truncated by the min/max values of the running variable from the data.}
 
-\item{col}{Colors to distinguish before and after the discontinuity.}
+\item{col}{a vector of two colors to distinguish before and after the discontinuity}
 
-\item{pts}{Should points be plotted. Defaults to TRUE.}
+\item{pts}{should points be plotted?}
 
-\item{xlab}{Label for the horizontal axis}
+\item{xlab}{label for the horizontal axis}
 
-\item{ylab}{Label for the vertical axis}
+\item{ylab}{label for the vertical axis}
 
-\item{main}{Title for the plot}
+\item{main}{title for the plot}
+
+\item{...}{unused}
 }
 \description{
-\code{RDplot} adds additional features to \code{\link[rdd]{plot.RD}} from the
-\pkg{rdd} package.
+\code{RDplot} adds a few additional features to \code{\link[rdd]{plot.RD}} 
+from the \pkg{rdd} package. The additional arguments are
+\code{col},\code{pts}, \code{xlab}, \code{ylab}, and \code{main}.
 }
 \seealso{
-\code{\link[rdd]{plot.RD}}
+\code{\link[rdd]{plot.RD}} for the original function.
 }
 

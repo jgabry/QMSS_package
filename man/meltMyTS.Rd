@@ -23,7 +23,7 @@ A molten data frame.
 }
 \description{
 \code{meltMyTS} is primarily designed to prepare data to be used with 
-\code{\link[QMSS]{ggMyTS}} to make plots of time series trends with
+\code{\link{ggMyTS}} to make plots of time series trends with
 \code{\link[ggplot2]{ggplot}}.
 }
 \examples{
@@ -31,6 +31,6 @@ A molten data frame.
 
 }
 \seealso{
-\code{\link[QMSS]{ggMyTS}}, \code{\link[reshape2]{melt.data.frame}}
+\code{\link{ggMyTS}}, \code{\link[reshape2]{melt.data.frame}}
 }
 

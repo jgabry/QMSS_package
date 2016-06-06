@@ -26,18 +26,23 @@ A data frame with \code{predData} and the associated predicted
 Predicted probabilities and confidence intervals from logit or probit model
 }
 \examples{
-GSS_2010$Y <- with(GSS_2010, 
-                   cut(realinc, 
-                   breaks=c(-Inf, median(realinc, na.rm = T), Inf), 
-                   labels=c("Low", "High")))
-logitmodel <- glm(Y ~ age + educ, data = GSS_2010, family = binomial)
-probitmodel <- glm(Y ~ age + educ, data = GSS_2010, family = binomial(link = "probit"))
+GSS_2010$Y <-
+  with(GSS_2010, cut(
+    realinc,
+    breaks = c(-Inf, median(realinc, na.rm = TRUE), Inf),
+    labels = c("Low", "High")
+  ))
+logitmodel <- glm(Y ~ age + educ, data = GSS_2010, 
+                  family = binomial(link = "logit"))
+probitmodel <- glm(Y ~ age + educ, data = GSS_2010, 
+                   family = binomial(link = "probit"))
 predData <- data.frame(age = 20, educ = 15)
-predProb(logitmodel, predData, ci = F)
-predProb(probitmodel, predData, ci= F)
+
+predProb(logitmodel, predData, ci = FALSE)
+predProb(probitmodel, predData, ci= FALSE)
 predData <- expand.grid(age = c(20, 50, 80), educ = c(5, 10, 15))
-predProb(logitmodel, predData, ci = T)
-predProb(probitmodel, predData, ci= T)
+predProb(logitmodel, predData, ci = TRUE)
+predProb(probitmodel, predData, ci= TRUE)
 
 }
 

@@ -8,14 +8,12 @@
 #'   
 #' @return An object of class "htest".
 #' 
-#' @seealso \code{\link[VGAM]{vglm}} 
-#' 
-#' @examples
-#' \dontrun{
-#' propOddsTest(fit, relaxed.fit)
-#' }
+#' @seealso \code{\link[VGAM]{vglm}}
 #'
 propOddsTest <- function(fit, relaxed.fit){ 
+  if (!requireNamespace("VGAM", quietly = TRUE))
+    stop("Please install the 'VGAM' package to use this function.")
+  
   fit_name <- deparse(substitute(fit))
   relaxed.fit_name <- deparse(substitute(relaxed.fit))
   model.names <- paste("fit =", fit_name, "| relaxed.fit =", relaxed.fit_name)

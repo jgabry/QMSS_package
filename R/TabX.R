@@ -47,7 +47,7 @@ TabX <- function(x, y, digits = 3){
   outer.Column <- formatC(dim1, width = maxR, format = "s")
   
   printTheTable <- function() {
-    xyNames <- abbreviate(c(xName,yName), min = 5, dot = T)
+    xyNames <- abbreviate(c(xName,yName), minlength = 5, dot = TRUE)
     cat(rep(Rspaces, ncol(tab)), "[Y]", xyNames[2], collapse = "\n")
     cat("[X]", xyNames[1], collapse = "\n")
     cat(Rspaces, 
