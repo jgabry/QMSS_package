@@ -7,14 +7,14 @@
 #' 
 #' @examples
 #' \dontrun{
-#' my.packages <- c("car", "foreign")
+#' my.packages <- c("ggplot2", "MASS", "plm")
 #' Librarian(my.packages)
 #' }
 #' 
 Librarian <- function(pkgs){  
   invisible(lapply(
     X = pkgs, 
-    FUN = require, 
+    FUN = library, 
     character.only = TRUE
   ))
 }
