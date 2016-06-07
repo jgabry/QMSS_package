@@ -27,5 +27,6 @@ test_that("sigmaRho returns expected result with model='within'", {
 })
 
 test_that("sigmaRho prints to console", {
-  expect_output(sigmaRho(fit), "fraction of variance due to u_i")
+  expect_output(sigmaRho(fit_within), "fraction of variance due to u_i")
+  expect_output(sigmaRho(fit_random), "fraction of variance due to u_i")
 })
